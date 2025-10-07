@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:navigationIcon="@drawable/baseline_arrow_back_ios_24">
+
+        <TextView
+            android:id="@+id/tvLichSuDatHang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Lịch sử đặt hàng"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Đường kẻ dưới Toolbar -->
+    <View
+        android:id="@+id/toolbar_separator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <!-- ScrollView để cuộn nội dung -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_separator"
+        app:layout_constraintBottom_toTopOf="@id/btnStartOrder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="40dp"
+            android:paddingBottom="40dp">
+
+            <ImageView
+                android:id="@+id/imageAssigntment"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/outline_assignment_24"
+                app:tint="#C7C7C7"
+                android:layout_marginBottom="32dp"
+                android:contentDescription="Calendar Icon" />
+
+            <TextView
+                android:id="@+id/tvChuaCoDonDatHang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chưa có đơn đặt hàng nào"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvHDan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nhấn nút màu cam bên dưới để tạo đơn hàng"
+                android:textColor="#808080"
+                android:textSize="14sp"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:gravity="center" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Nút bắt đầu đặt hàng -->
+    <Button
+        android:id="@+id/btnStartOrder"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:backgroundTint="#B55638"
+        android:text="Bắt đầu đặt hàng"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

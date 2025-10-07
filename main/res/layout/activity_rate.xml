@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RateActivity">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:navigationIcon="@drawable/baseline_arrow_back_ios_24">
+
+        <TextView
+            android:id="@+id/tvHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Đánh giá"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- ScrollView chứa phần nội dung chính -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            android:gravity="center_horizontal">
+
+            <!-- Rating -->
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:isIndicator="false"
+                android:numStars="5"
+                android:rating="4"
+                android:stepSize="1"
+                android:scaleX="2"
+                android:scaleY="2"
+                android:progressTint="@color/star_active"
+                android:secondaryProgressTint="@color/star_active"
+                android:backgroundTint="@color/star_inactive" />
+
+            <!-- Hình minh họa -->
+            <ImageView
+                android:id="@+id/imgCourier"
+                android:layout_width="240dp"
+                android:layout_height="220dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/bg" />
+
+            <!-- Ô nhập nhận xét -->
+            <EditText
+                android:id="@+id/edtComment"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_input_rounded"
+                android:gravity="top|start"
+                android:hint="bắt đầu đánh giá...."
+                android:inputType="textMultiLine"
+                android:maxLines="6"
+                android:padding="14dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="#958B8B" />
+
+            <!-- Nút Gửi -->
+            <Button
+                android:id="@+id/btnSend"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#B55638"
+                android:text="Gửi"
+                android:fontFamily="sans-serif-medium"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:textColor="@android:color/white"
+                app:cornerRadius="28dp" />
+
+            <!-- Để sau -->
+            <TextView
+                android:id="@+id/tvDeSau"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textSize="15sp"
+                android:text="Để sau"
+                android:textColor="#8A8A8A" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Thanh điều hướng dưới cùng -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_bottom_nav_rounded"
+        app:itemIconTint="@color/selector_nav_icon"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/menu_bottom_nav_custom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:itemRippleColor="@android:color/transparent"
+        app:itemBackground="@android:color/transparent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
